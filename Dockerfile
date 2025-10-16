@@ -7,7 +7,7 @@ RUN ./gradlew --no-daemon installDist
 
 FROM eclipse-temurin:21-jre
 WORKDIR /app
-COPY --from=build /workspace/build/install/personal-site-ollie/ /app/
+COPY --from=build /workspace/build/install/handicap-comparator-auto/ /app/
 ENV PORT=8080
 EXPOSE 8080
-CMD ["./bin/personal-site-ollie"]
+CMD ["./bin/handicap-comparator-auto"]

@@ -26,7 +26,7 @@ kotlin {
 }
 
 application {
-    mainClass = "com.olliekennedy.PersonalSiteKt"
+    mainClass = "com.olliekennedy.HandicapComparatorKt"
 }
 
 repositories {
@@ -62,6 +62,7 @@ tasks {
 }
 
 dependencies {
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.10.2")
     implementation(platform("org.http4k:http4k-bom:6.18.1.0"))
     implementation("org.http4k.pro:http4k-tools-hotreload")
     implementation("org.http4k:http4k-core")

@@ -1,1 +1,1 @@
-rootProject.name = "personal-site-ollie"
+rootProject.name = "handicap-comparator-auto"

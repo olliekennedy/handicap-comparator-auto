@@ -1,4 +1,4 @@
-app = "personal-site-ollie"
+app = "handicap-comparator-auto"
 primary_region = "lhr"
 
 [build]
