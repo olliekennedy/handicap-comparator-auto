@@ -56,14 +56,13 @@ class HandicapComparatorTest {
     }
 
     @Test
-    fun `download endpoint returns file when job done`() = runBlocking {
+    fun `download endpoint shows file content when job done`() = runBlocking {
         val response = app(Request(Method.GET, "/start"))
         val jobId = response.bodyString()
         delay(4000)
-        val download = app(Request(Method.GET, "/download/$jobId"))
-        assertEquals(Status.OK, download.status)
-        assertEquals("attachment; filename=\"result.txt\"", download.header("Content-Disposition"))
-        assertEquals("Generated file content", download.bodyString())
+        val result = app(Request(Method.GET, "/download/$jobId"))
+        assertEquals(Status.OK, result.status)
+        assertEquals("results", result.bodyString())
     }
 
     @Test

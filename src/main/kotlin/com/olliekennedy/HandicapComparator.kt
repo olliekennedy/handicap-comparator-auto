@@ -17,7 +17,7 @@ import org.http4k.server.asServer
 import java.util.UUID
 import java.util.concurrent.ConcurrentHashMap
 
-val jobs = ConcurrentHashMap<String, Pair<Boolean, ByteArray?>>()
+val jobs = ConcurrentHashMap<String, Pair<Boolean, String?>>()
 
 fun startJob(): String {
     val jobId = UUID.randomUUID().toString()
@@ -25,8 +25,8 @@ fun startJob(): String {
     GlobalScope.launch {
         // Simulate long job
         delay(3000)
-        val fileContent = "Generated file content".toByteArray()
-        jobs[jobId] = true to fileContent
+        val content = "results"
+        jobs[jobId] = true to content
     }
     return jobId
 }
@@ -43,11 +43,10 @@ val app = routes(
     },
     "/download/{jobId}" bind Method.GET to { req ->
         val jobId = req.path("jobId") ?: return@to Response(Status.BAD_REQUEST)
-        val (done, file) = jobs[jobId] ?: return@to Response(Status.NOT_FOUND)
-        if (!done || file == null) return@to Response(Status.ACCEPTED)
-        Response(Status.OK)
-            .header("Content-Disposition", "attachment; filename=\"result.txt\"")
-            .body(file.inputStream(), file.size.toLong())
+        val (done, content) = jobs[jobId] ?: return@to Response(Status.NOT_FOUND)
+        if (!done || content == null) return@to Response(Status.ACCEPTED)
+
+        Response(Status.OK).body(content)
     }
 )
 
