@@ -1,4 +1,4 @@
-# PersonalSite
+# Handicap Comparator Auto
 
 ## Run Locally
 
@@ -10,11 +10,6 @@ Run the build:
 Run the app (hit localhost:9000):
 ```
 ./gradlew run
-```
-
-Development (hot reload):
-```
-./gradlew dev
 ```
 
 ## Package

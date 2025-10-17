@@ -2,17 +2,14 @@ package com.olliekennedy.playwright
 
 import com.natpryce.hamkrest.assertion.assertThat
 import com.natpryce.hamkrest.contains
-import com.natpryce.hamkrest.equalTo
 import com.olliekennedy.app
-import org.http4k.core.Request
-import org.http4k.core.Response
-import org.http4k.core.Status.Companion.OK
 import org.http4k.playwright.Http4kBrowser
 import org.http4k.playwright.LaunchPlaywrightBrowser
-import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.Disabled
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.RegisterExtension
 
+@Disabled("leaving here as a template")
 class PlaywrightBrowserTests {
 
     @RegisterExtension
