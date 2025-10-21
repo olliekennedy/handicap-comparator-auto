@@ -25,7 +25,7 @@ fun startJob(): String {
     GlobalScope.launch {
         // Simulate long job
         delay(3000)
-        val content = "results"
+        val content = "amazing results"
         jobs[jobId] = true to content
     }
     return jobId
