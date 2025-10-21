@@ -62,7 +62,7 @@ class HandicapComparatorTest {
         delay(4000)
         val result = app(Request(Method.GET, "/result/$jobId"))
         assertEquals(Status.OK, result.status)
-        assertEquals("results", result.bodyString())
+        assertEquals("amazing results", result.bodyString())
     }
 
     @Test
