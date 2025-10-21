@@ -41,7 +41,7 @@ val app = routes(
         val (done, _) = jobs[jobId] ?: return@to Response(Status.NOT_FOUND)
         Response(Status.OK).body(if (done) "done" else "pending")
     },
-    "/download/{jobId}" bind Method.GET to { req ->
+    "/result/{jobId}" bind Method.GET to { req ->
         val jobId = req.path("jobId") ?: return@to Response(Status.BAD_REQUEST)
         val (done, content) = jobs[jobId] ?: return@to Response(Status.NOT_FOUND)
         if (!done || content == null) return@to Response(Status.ACCEPTED)
