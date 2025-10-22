@@ -1,22 +1,12 @@
-# fly.toml app configuration file generated for handicap-comparator-auto on 2025-10-20T10:10:43+01:00
-#
-# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
-#
-
-app = 'handicap-comparator-auto'
-primary_region = 'lhr'
+app = "handicap-comparator-auto"
+primary_region = "lhr"
 
 [build]
 
 [http_service]
-  internal_port = 8080
-  force_https = true
-  auto_stop_machines = 'stop'
-  auto_start_machines = true
-  min_machines_running = 1
-  processes = ['app']
-
-[[vm]]
-  memory = '1gb'
-  cpu_kind = 'shared'
-  cpus = 1
+internal_port = 8080
+force_https = true
+auto_stop_machines = true
+auto_start_machines = true
+min_machines_running = 1
+processes = ["app"]
