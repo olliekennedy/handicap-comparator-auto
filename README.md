@@ -23,3 +23,4 @@ Resulting archive appears under build/distributions/.
 
 ## Notes
 Requires JDK 21 (Gradle toolchain will provision if not installed).
+
