@@ -48,15 +48,15 @@ class HandicapComparatorTest {
     }
 
     @Test
-    fun `download endpoint returns 202 if job not done`() {
+    fun `result endpoint returns 202 if job not done`() {
         val response = app(Request(Method.GET, "/start"))
         val jobId = response.bodyString()
-        val download = app(Request(Method.GET, "/result/$jobId"))
-        assertEquals(Status.ACCEPTED, download.status)
+        val result = app(Request(Method.GET, "/result/$jobId"))
+        assertEquals(Status.ACCEPTED, result.status)
     }
 
     @Test
-    fun `download endpoint shows file content when job done`() = runBlocking {
+    fun `result endpoint shows file content when job done`() = runBlocking {
         val response = app(Request(Method.GET, "/start"))
         val jobId = response.bodyString()
         delay(4000)
@@ -66,13 +66,13 @@ class HandicapComparatorTest {
     }
 
     @Test
-    fun `download endpoint returns 404 for unknown job`() {
+    fun `result endpoint returns 404 for unknown job`() {
         val response = app(Request(Method.GET, "/result/unknown"))
         assertEquals(Status.NOT_FOUND, response.status)
     }
 
     @Test
-    fun `download endpoint returns 404 for missing jobId`() {
+    fun `result endpoint returns 404 for missing jobId`() {
         val response = app(Request(Method.GET, "/result/"))
         assertEquals(Status.NOT_FOUND, response.status)
     }
